@@ -29,26 +29,47 @@ function createNewTask(str) {
     newDiv.appendChild(newLabel);
 
     taskList.appendChild(newDiv);
+}
 
-    newLabel.addEventListener("click", function (event) {
-        if (event.target === newInput) {
-            // handle checkbox click
-            if (newInput.checked) {
-                newP.style.textDecoration = "line-through";
-            } else {
-                newP.style.textDecoration = "none";
+// Load the task list from local storage if available
+const savedTaskList = localStorage.getItem("taskList");
+if (savedTaskList) {
+    taskList.innerHTML = savedTaskList;
+}
+
+function saveTaskListToLocalStorage() {
+    localStorage.setItem("taskList", taskList.innerHTML);
+}
+
+function addEventListenersToTasks() {
+    const tasks = taskList.querySelectorAll(".task");
+    tasks.forEach(function (task) {
+        const label = task.querySelector("label");
+        const input = label.querySelector("input");
+        const p = label.querySelector("p");
+        const button = label.querySelector("button");
+
+        label.addEventListener("click", function (event) {
+            if (event.target === input) {
+                // handle checkbox click
+                if (input.checked) {
+                    p.style.textDecoration = "line-through";
+                } else {
+                    p.style.textDecoration = "none";
+                }
+            } else if (event.target === button) {
+                // handle button click
+                task.remove();
+                saveTaskListToLocalStorage();
             }
-        } else if (event.target === newButton) {
-            // handle button click
-            newDiv.remove();
-        }
+        });
     });
 }
 
-createNewTask("wash the dishes");
-createNewTask("walk the dog");
-createNewTask("water plants");
-createNewTask("bake bread");
+function saveTaskListToLocalStorage() {
+    localStorage.setItem("taskList", taskList.innerHTML);
+    addEventListenersToTasks();
+}
 
 let newTaskInput = document.getElementById("new-task-input");
 
@@ -63,7 +84,11 @@ newTask = newTaskInput.addEventListener("keydown", function (event) {
     event.target.value = "";
 
     createNewTask(newTaskText);
+
+    saveTaskListToLocalStorage();
 });
+
+addEventListenersToTasks();
 
 // newTaskInput.addEventListener("keydown", function (event) {
 //     if (event.key !== "Enter") return;
