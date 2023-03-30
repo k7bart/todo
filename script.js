@@ -31,16 +31,6 @@ function createNewTask(str) {
     taskList.appendChild(newDiv);
 }
 
-// Load the task list from local storage if available
-const savedTaskList = localStorage.getItem("taskList");
-if (savedTaskList) {
-    taskList.innerHTML = savedTaskList;
-}
-
-function saveTaskListToLocalStorage() {
-    localStorage.setItem("taskList", taskList.innerHTML);
-}
-
 function addEventListenersToTasks() {
     const tasks = taskList.querySelectorAll(".task");
     tasks.forEach(function (task) {
@@ -66,11 +56,6 @@ function addEventListenersToTasks() {
     });
 }
 
-function saveTaskListToLocalStorage() {
-    localStorage.setItem("taskList", taskList.innerHTML);
-    addEventListenersToTasks();
-}
-
 let newTaskInput = document.getElementById("new-task-input");
 
 newTask = newTaskInput.addEventListener("keydown", function (event) {
@@ -88,23 +73,36 @@ newTask = newTaskInput.addEventListener("keydown", function (event) {
     saveTaskListToLocalStorage();
 });
 
+function saveTaskListToLocalStorage() {
+    localStorage.setItem("taskList", taskList.innerHTML);
+    addEventListenersToTasks();
+}
+
+// Load the task list from local storage if available
+const savedTaskList = localStorage.getItem("taskList");
+if (savedTaskList) {
+    taskList.innerHTML = savedTaskList;
+}
+
 addEventListenersToTasks();
 
-// newTaskInput.addEventListener("keydown", function (event) {
-//     if (event.key !== "Enter") return;
+/*
+newTaskInput.addEventListener("keydown", function (event) {
+    if (event.key !== "Enter") return;
 
-//     event.preventDefault();
+    event.preventDefault();
 
-//     taskList.innerHTML += `
-//         <div class="task">
-//             <label class="wraper">
-//                 <input type="checkbox" />
-//                 <span class="checkmark"></span>
-//                 <p class="text">${event.target.value}</p>
-//                 <button class="remove">—</button>
-//             </label>
-//         </div>
-//     `;
+    taskList.innerHTML += `
+        <div class="task">
+            <label class="wraper">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+                <p class="text">${event.target.value}</p>
+                <button class="remove">—</button>
+            </label>
+        </div>
+    `;
 
-//     event.target.value = "";
-// });
+    event.target.value = "";
+});
+*/

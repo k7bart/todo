@@ -73,7 +73,7 @@ h1 {
     align-items: end;
 }
 
-/* Hide the browser's default checkbox */
+/* Hide the browser's default checkbox*/
 .wraper input {
     position: absolute;
     opacity: 0;
