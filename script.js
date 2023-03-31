@@ -106,14 +106,6 @@ if (savedTaskList) {
     taskList.innerHTML = savedTaskList;
 }
 
-localStorage.setItem("isLightTheme", JSON.stringify(isLightTheme));
-
-const savedTheme = localStorage.getItem("isLightTheme");
-
-if (savedTheme) {
-    isLightTheme = savedTheme;
-}
-
 addEventListenersToTasks();
 
 /*
