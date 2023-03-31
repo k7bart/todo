@@ -20,6 +20,8 @@ body {
     border-radius: 50%;
     background-color: whitesmoke;
     font-size: 23px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 #theme:hover {
@@ -180,11 +182,6 @@ h1 {
     width: 494px;
     background-color: transparent;
     color: black;
-}
-
-#theme {
-    display: flex;
-    justify-content: flex-start;
 }
 
 .dark-theme {
