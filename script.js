@@ -56,6 +56,28 @@ function addEventListenersToTasks() {
     });
 }
 
+// how to rewrite the code with using classList.toggle?
+
+const themeButton = document.getElementById("theme");
+
+isLightTheme = true;
+
+themeButton.addEventListener("click", function () {
+    const body = document.querySelector("body");
+    const container = document.getElementById("container");
+    const newTaskInput = document.getElementById("new-task-input");
+
+    if (isLightTheme) {
+        body.classList.add("dark-theme");
+        themeButton.innerText = "🌞";
+        isLightTheme = false;
+    } else {
+        body.classList.remove("dark-theme");
+        themeButton.innerText = "🌜";
+        isLightTheme = true;
+    }
+});
+
 let newTaskInput = document.getElementById("new-task-input");
 
 newTask = newTaskInput.addEventListener("keydown", function (event) {
@@ -84,14 +106,20 @@ if (savedTaskList) {
     taskList.innerHTML = savedTaskList;
 }
 
+localStorage.setItem("isLightTheme", JSON.stringify(isLightTheme));
+
+const savedTheme = localStorage.getItem("isLightTheme");
+
+if (savedTheme) {
+    isLightTheme = savedTheme;
+}
+
 addEventListenersToTasks();
 
 /*
 newTaskInput.addEventListener("keydown", function (event) {
     if (event.key !== "Enter") return;
-
     event.preventDefault();
-
     taskList.innerHTML += `
         <div class="task">
             <label class="wraper">
@@ -102,7 +130,6 @@ newTaskInput.addEventListener("keydown", function (event) {
             </label>
         </div>
     `;
-
     event.target.value = "";
 });
 */
