@@ -37,7 +37,6 @@ body {
     width: 20px;
     height: 20px;
     display: block;
-    -webkit-user-select: none;
     margin: auto;
     background-color: transparent;
     filter: invert(87%) sepia(100%) saturate(921%) hue-rotate(301deg)
