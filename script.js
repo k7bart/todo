@@ -95,25 +95,25 @@ if (savedTaskList) {
     taskList.innerHTML = savedTaskList;
 }
 
-currentMonth = parseInt(date.slice(3, 5)) - 1;
+// currentMonth = parseInt(date.slice(3, 5)) - 1;
 
-function addTaskForTheFirstDayOfMonth(task) {
-    firstDayOfMonth = new Date(2023, currentMonth, 1).toLocaleDateString();
-    if (date === firstDayOfMonth) {
-        createNewTask(task);
-    }
-}
+// function addTaskForTheFirstDayOfMonth(task) {
+//     firstDayOfMonth = new Date(2023, currentMonth, 1).toLocaleDateString();
+//     if (date === firstDayOfMonth) {
+//         createNewTask(task);
+//     }
+// }
 
-function addTaskForTheLastDayOfMonth(task) {
-    lastDayOfMonth = new Date(2023, currentMonth, 0).toLocaleDateString();
-    if (date === lastDayOfMonth) {
-        createNewTask(task);
-    }
-}
+// function addTaskForTheLastDayOfMonth(task) {
+//     lastDayOfMonth = new Date(2023, currentMonth, 0).toLocaleDateString();
+//     if (date === lastDayOfMonth) {
+//         createNewTask(task);
+//     }
+// }
 
-addTaskForTheFirstDayOfMonth("give pills for the dog");
-addTaskForTheFirstDayOfMonth("change water filter");
-addTaskForTheLastDayOfMonth("transfer counter readings");
+// addTaskForTheFirstDayOfMonth("give pills for the dog");
+// addTaskForTheFirstDayOfMonth("change water filter");
+// addTaskForTheLastDayOfMonth("transfer counter readings");
 
 // addEventListenersToTasks();
 addEventListenerToRemoveButton();
