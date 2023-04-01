@@ -16,12 +16,20 @@
     <body>
         <div id="container">
             <header>
-                <div id="date">
-                    <p>date:</p>
-                    <script>
-                        date = new Date().toLocaleDateString();
-                        document.write(date);
-                    </script>
+                <div id="div-with-theme-and-date">
+                    <button id="theme">
+                        <div class="light-theme">
+                            <img src="./images/moon.png" />
+                        </div>
+                    </button>
+                    <div id="date">
+                        <p>date:</p>
+                        <script>
+                            // date = "30/04/2023";
+                            date = new Date().toLocaleDateString();
+                            document.write(date);
+                        </script>
+                    </div>
                 </div>
                 <h1>TO DO LIST</h1>
             </header>
@@ -51,9 +59,6 @@
                 <input id="new-task-input" type="text" name="new-task" />
             </div>
         </div>
-        <button id="theme">
-            <div id="emoji">🌜</div>
-        </button>
         <script src="./script.js"></script>
     </body>
 </html>

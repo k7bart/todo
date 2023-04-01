@@ -11,32 +11,43 @@ body {
     padding-top: 30px;
 }
 
+#div-with-theme-and-date {
+    display: flex;
+    justify-content: space-between;
+}
+
 #theme {
-    position: absolute;
     height: 30px;
     width: 30px;
-    right: 30px;
     border: none;
     border-radius: 50%;
-    background-color: whitesmoke;
+
+    background-color: rgba(35, 35, 35, 0.2);
     font-size: 23px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
 }
 
 #theme:hover {
-    background-color: grey;
+    background-color: rgba(35, 35, 35, 0.5);
 }
 
-#emoji {
-    display: flex;
-    /* align-items: center; */
+.light-theme img {
+    width: 20px;
+    height: 20px;
+    display: block;
+    -webkit-user-select: none;
+    margin: auto;
+    background-color: transparent;
+    filter: invert(87%) sepia(100%) saturate(921%) hue-rotate(301deg)
+        brightness(118%) contrast(101%);
 }
 
 #container {
     background-color: whitesmoke;
     width: 700px;
-    padding: 40px 60px 80px 80px;
+    padding: 40px 60px 80px 75px;
 }
 
 header {
@@ -64,17 +75,13 @@ h1 {
     text-align: center;
 }
 
-.task {
+.task-wraper {
     font-family: "Homemade Apple", cursive;
     display: flex;
     padding-bottom: 16px;
 }
 
-/* .task:not(:last-child) {
-  padding-bottom: 16px;
-} */
-
-.wraper p {
+.task p {
     border-bottom: 1px solid gray;
     line-height: 16px;
     margin-left: 16px;
@@ -82,7 +89,7 @@ h1 {
     padding-left: 10px;
 }
 
-.wraper {
+.task {
     display: flex;
     align-items: center;
     position: relative;
@@ -97,7 +104,7 @@ h1 {
 }
 
 /* Hide the browser's default checkbox*/
-.wraper input {
+.task input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -114,7 +121,7 @@ h1 {
 }
 
 /* On mouse-over, add a grey background color */
-.wraper:hover input ~ .checkmark {
+.task-wraper:hover input ~ .checkmark {
     background-color: transparent;
 }
 
@@ -126,14 +133,14 @@ h1 {
 }
 
 /* Show the checkmark when checked */
-.wraper input:checked ~ .checkmark:after {
+.task-wraper input:checked ~ .checkmark:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.wraper .checkmark:after {
+.task-wraper .checkmark:after {
     left: 8px;
-    top: 4px;
+    top: 9px;
     width: 5px;
     height: 10px;
     border: solid black;
@@ -143,15 +150,18 @@ h1 {
     transform: rotate(45deg);
 }
 
-.remove {
-    height: 25px;
-    width: 25px;
+.remove-button {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     background-color: transparent;
     color: rgba(128, 128, 128, 0);
 }
 
-.wraper:hover button {
+.task-wraper:hover button {
     color: grey;
 }
 
@@ -190,9 +200,7 @@ h1 {
 }
 
 .dark-theme #theme {
-    background-color: antiquewhite;
-    display: flex;
-    justify-content: center;
+    background-color: rgba(245, 245, 245, 0.2);
 }
 
 .dark-theme #container {
@@ -201,4 +209,18 @@ h1 {
 
 .dark-theme #new-task-input {
     color: antiquewhite;
+}
+
+.dark-theme #sun-svg {
+    height: 22px;
+    width: 22px;
+    /* background-color: #ffd91c; */
+    /* filter: invert(76%) sepia(76%) saturate(492%) hue-rotate(356deg)
+        brightness(102%) contrast(101%); */
+    filter: invert(87%) sepia(100%) saturate(921%) hue-rotate(301deg)
+        brightness(118%) contrast(101%);
+}
+
+.dark-theme #theme:hover {
+    background-color: rgba(245, 245, 245, 0.5);
 }
