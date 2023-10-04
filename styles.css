@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+*:focus {
+    outline: none;
+}
+
 body {
     background-color: #e6dfd3;
     display: flex;
@@ -74,13 +78,8 @@ h1 {
     text-align: center;
 }
 
-.task-wraper {
-    font-family: "Homemade Apple", cursive;
-    display: flex;
-    padding-bottom: 16px;
-}
-
 .task p {
+    font-family: "Homemade Apple", cursive;
     border-bottom: 1px solid gray;
     line-height: 16px;
     margin-left: 16px;
@@ -95,14 +94,11 @@ h1 {
     width: 100%;
     cursor: pointer;
     font-size: 18px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     align-items: end;
+    padding-bottom: 16px;
 }
 
-/* Hide the browser's default checkbox*/
+/* Hide the browser's default checkbox */
 .task input {
     position: absolute;
     opacity: 0;
@@ -115,13 +111,11 @@ h1 {
 .checkmark {
     height: 25px;
     width: 25px;
-    /* background-color: #eee; */
     border: solid grey 1px;
 }
 
-/* On mouse-over, add a grey background color */
-.task-wraper:hover input ~ .checkmark {
-    background-color: transparent;
+.checkmark:hover {
+    background-color: lightgray;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -132,12 +126,12 @@ h1 {
 }
 
 /* Show the checkmark when checked */
-.task-wraper input:checked ~ .checkmark:after {
+input:checked ~ .checkmark:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.task-wraper .checkmark:after {
+.task .checkmark:after {
     left: 8px;
     top: 9px;
     width: 5px;
@@ -160,7 +154,7 @@ h1 {
     color: rgba(128, 128, 128, 0);
 }
 
-.task-wraper:hover button {
+.task:hover button {
     color: grey;
 }
 
@@ -222,4 +216,8 @@ h1 {
 
 .dark-theme #theme:hover {
     background-color: rgba(245, 245, 245, 0.5);
+}
+
+.task-wraper.dragging :where(.task) {
+    opacity: 0;
 }
