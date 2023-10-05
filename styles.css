@@ -78,7 +78,7 @@ h1 {
     text-align: center;
 }
 
-.task p {
+.todo p {
     font-family: "Homemade Apple", cursive;
     border-bottom: 1px solid gray;
     line-height: 16px;
@@ -87,7 +87,7 @@ h1 {
     padding-left: 10px;
 }
 
-.task {
+.todo {
     display: flex;
     align-items: center;
     position: relative;
@@ -99,7 +99,7 @@ h1 {
 }
 
 /* Hide the browser's default checkbox */
-.task input {
+.todo input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -131,7 +131,7 @@ input:checked ~ .checkmark:after {
 }
 
 /* Style the checkmark/indicator */
-.task .checkmark:after {
+.todo .checkmark:after {
     left: 8px;
     top: 9px;
     width: 5px;
@@ -154,11 +154,11 @@ input:checked ~ .checkmark:after {
     color: rgba(128, 128, 128, 0);
 }
 
-.task:hover button {
+.todo:hover button {
     color: grey;
 }
 
-#new-task {
+#new-todo {
     height: 25px;
     width: 100%;
     display: flex;
@@ -172,7 +172,7 @@ input:checked ~ .checkmark:after {
     color: gray;
 }
 
-#new-task-input {
+#new-todo-input {
     border: none;
     border-bottom: 1px solid gray;
     line-height: 16px;
@@ -200,7 +200,7 @@ input:checked ~ .checkmark:after {
     background-color: #353535;
 }
 
-.dark-theme #new-task-input {
+.dark-theme #new-todo-input {
     color: antiquewhite;
 }
 
@@ -216,8 +216,4 @@ input:checked ~ .checkmark:after {
 
 .dark-theme #theme:hover {
     background-color: rgba(245, 245, 245, 0.5);
-}
-
-.task-wraper.dragging :where(.task) {
-    opacity: 0;
 }
