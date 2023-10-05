@@ -26,6 +26,8 @@ function initializeEventListeners() {
         const clickedCheckmark = event.target.closest(".checkmark");
         const clickedRemoveButton = event.target.closest(".remove-button");
 
+        if (!clickedCheckmark && !clickedRemoveButton) return;
+
         if (clickedCheckmark) {
             const todoElement = clickedCheckmark.closest(".todo");
             const textElement = todoElement.querySelector(".text");
