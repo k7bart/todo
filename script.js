@@ -10,7 +10,7 @@ function renderTodo(todo) {
     todoElement.innerHTML = `
             <input type="checkbox" ${todo.isComplete ? "checked" : ""} >
             <span class="checkmark"></span>
-            <p class="text" contenteditable="true" spellcheck="false" style="text-decoration:${
+            <p class="text" spellcheck="false" style="text-decoration:${
                 todo.isComplete ? "line-through" : "none"
             }"
             >${todo.text}</p>
