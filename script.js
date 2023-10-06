@@ -4,7 +4,6 @@ const input = document.getElementById("new-todo-input");
 let todos = JSON.parse(localStorage.getItem("todos")) ?? [];
 
 function renderTodo(todo) {
-    if (!todo.text) return;
     let todoElement = document.createElement("div");
     todoElement.className = "todo";
     todoElement.innerHTML = `
@@ -65,6 +64,7 @@ function initializeEventListeners() {
 
 input.addEventListener("keydown", function (event) {
     if (event.key !== "Enter") return;
+    if (!input.value.trim().length) return;
     event.preventDefault();
 
     let todo = { text: input.value, isComplete: false };
