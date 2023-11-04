@@ -67,7 +67,7 @@ input.addEventListener("keydown", function (event) {
     if (!input.value.trim().length) return;
     event.preventDefault();
 
-    let todo = { text: input.value, isComplete: false };
+    let todo = { id: +new Date(), text: input.value, isComplete: false };
 
     renderTodo(todo);
     todos.push(todo);
